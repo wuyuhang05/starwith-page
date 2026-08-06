@@ -1,0 +1,128 @@
+export type Language = "zh" | "en";
+
+export const content = {
+  zh: {
+    nav: { research: "研究", team: "团队", join: "加入我们", menu: "打开菜单", primary: "主导航", language: "语言选择" },
+    common: {
+      home: "星曜同谐首页", vision: "愿景", foundation: "研究基础", team: "团队", join: "加入我们",
+      exploreResearch: "探索我们的研究", meetTeam: "认识团队", buildWithUs: "与我们一起构建",
+    },
+    home: {
+      heroIntro: "星曜同谐构建 Physical Interaction Model，让机器在持续交互中理解人的语言、动作、状态和反馈，并做出更自然、安全的物理行动。",
+      visionTitle: "机器不应等待人去适应它。它应逐渐理解人的意图，并自然融入行动。",
+      visionBody1: "当人熟练使用工具时，工具会成为意图的自然延伸。我们相信，真正以人为本的物理智能也应如此：它理解人，而不是要求人学习如何配合机器。",
+      visionBody2: "Physical Interaction Model 将人体理解、长期记忆、多模态推理与行为预测连接起来，为下一代人机协作建立基础。",
+      principles: [
+        { title: "理解人的数据", body: "从第一视角、多模态信息和真实生活场景中，学习人在什么情况下、为什么这样行动。" },
+        { title: "面向交互的模型", body: "把人的状态、环境与历史信息结合起来，理解当前需求并规划下一步行动。" },
+        { title: "进入真实设备", body: "在机器人、智能眼镜、智能家居与智能座舱中验证模型，让交互真实发生。" },
+      ],
+      teamTitle: "让机器看见人，也理解人的视角、记忆和意图。",
+      teamBody: "创始团队长期深耕人体建模、计算机视觉、第一视角视觉、多模态大模型与机器人交互，并汇聚来自国内外一流高校的研究者与工程师。",
+      institutionLabel: "团队成员来源高校",
+      institutions: ["清华大学", "复旦大学", "浙江大学", "北京航空航天大学", "华盛顿大学"],
+      closingTitle: "赛道未定，范式待建。\n正是定义者的窗口期。",
+    },
+    research: {
+      kicker: "RESEARCH / 研究",
+      title: "构建下一代\n人机协作基础设施",
+      intro: "如果智能机器要真正进入生活，仅靠更强的模型还不够。它需要理解真实的人，以及人与环境之间不断变化的关系。",
+      thesisTitle: "Physical Interaction Model",
+      thesisBody: "我们让语言、动作、状态、环境和长期反馈进入同一个交互闭环。模型不只是回答问题，而是在持续观察与协作中形成对人的理解。",
+      pillars: [
+        { code: "DATA / 01", title: "理解人的数据体系", body: "真实世界的人机交互远比传统训练环境复杂。我们从第一视角、多模态信息和真实生活场景中，构建能够表达身体、意图与情境的数据。", tags: ["Egocentric", "Human behavior", "Multimodal"] },
+        { code: "MODEL / 02", title: "面向交互的智能模型", body: "我们推进人体理解、长期记忆、多模态推理和行为预测，让模型结合人的状态、环境与历史信息，理解当前需求。", tags: ["Human modeling", "Long-term memory", "Reasoning"] },
+        { code: "DEVICE / 03", title: "真实设备中的验证", body: "Physical Interaction Model 最终需要进入真实世界。我们面向机器人、智能眼镜、智能家居和智能座舱验证交互能力。", tags: ["Robotics", "Wearables", "Embodied AI"] },
+      ],
+      loop: ["看见", "理解", "记忆", "行动", "反馈"],
+      loopLabel: "持续交互闭环",
+    },
+    team: {
+      kicker: "PEOPLE / 团队",
+      title: "一支以“人”为本的\nAI 团队",
+      intro: "要让机器理解人，需要同时回答两个问题：机器如何看见人的身体和行为？又该如何理解人的意图、习惯和长期需求？",
+      founders: [
+        { initials: "FY", name: "冯瑶", role: "联合创始人 · 清华大学人工智能学院助理教授", bio: "长期从事人体建模、计算机视觉和机器人交互研究，关注机器如何从视觉中理解人的身体与动作，以及如何与人安全互动。曾在斯坦福大学从事博士后研究，并参与 Meshcapade 的研发与产业化。", focus: "让机器看见人、理解身体" },
+        { initials: "LM", name: "刘淼", role: "联合创始人 · 清华大学人工智能学院助理教授", bio: "长期研究第一视角视觉、多模态大模型和用户行为理解，关注机器如何从人的视角理解世界，并记住人与环境之间的关系。曾任 Meta GenAI 与 Reality Labs 技术负责人。", focus: "让机器理解视角、记忆和意图" },
+      ],
+      collectiveTitle: "数据、模型与部署，一体化推进。",
+      collectiveBody: "团队覆盖人体建模、多模态模型、机器人控制与数据建设，成员来自清华大学、复旦大学、浙江大学、北京航空航天大学、华盛顿大学等国内外高校。",
+      disciplines: ["人体建模", "多模态模型", "机器人控制", "数据建设"],
+    },
+    join: {
+      kicker: "JOIN US / 加入我们",
+      title: "与我们一起，\n定义下一代人机协作",
+      intro: "当 AI 进入物理世界，机器的每一次判断都可能影响一个真实的人。我们期待与关注人工智能、机器人、多模态模型、人机交互和智能硬件的人同行。",
+      paths: [
+        { title: "研究者与工程师", body: "面向人体建模、多模态学习、长期记忆、行为预测、机器人控制与系统工程等方向。" },
+        { title: "博士生与实习生", body: "欢迎对 Physical Interaction Model 有长期兴趣、愿意在真实问题中推进研究的年轻同行。" },
+        { title: "产业与生态伙伴", body: "与机器人、智能眼镜、智能家居、智能座舱等真实设备和场景共同验证新的交互范式。" },
+      ],
+      status: "开放岗位与具体申请方式将于此页面持续更新。",
+      quote: "一个真正重要的问题，一群长期为这个问题积累的人，以及一个仍待定义的新范式窗口，在此刻相遇。",
+    },
+    footer: { line: "最重要的事 · 最适合的人 · 现在就做" },
+  },
+  en: {
+    nav: { research: "Research", team: "Team", join: "Join us", menu: "Open menu", primary: "Primary navigation", language: "Language selection" },
+    common: {
+      home: "StarWith home", vision: "Vision", foundation: "Foundations", team: "Team", join: "Join us",
+      exploreResearch: "Explore our research", meetTeam: "Meet the team", buildWithUs: "Build with us",
+    },
+    home: {
+      heroIntro: "StarWith is building the Physical Interaction Model — helping machines understand human language, movement, state and feedback through continuous interaction, then act naturally and safely in the physical world.",
+      visionTitle: "People should not have to adapt to machines. Machines should learn to understand people and become a natural part of action.",
+      visionBody1: "A familiar tool becomes an extension of intent. We believe human-centered physical intelligence should work the same way: understanding the person instead of asking the person to learn the machine.",
+      visionBody2: "The Physical Interaction Model connects human understanding, long-term memory, multimodal reasoning and behavior prediction to create a foundation for the next generation of human-machine collaboration.",
+      principles: [
+        { title: "Data that understands people", body: "Learn not only how people move, but when and why they act, through egocentric, multimodal and real-world data." },
+        { title: "Models built for interaction", body: "Unify human state, environment and history to understand present needs and plan what comes next." },
+        { title: "Intelligence on real devices", body: "Validate the model in robots, smart glasses, homes and vehicles — where interaction truly happens." },
+      ],
+      teamTitle: "Helping machines see the person — and understand their perspective, memory and intent.",
+      teamBody: "Our founding team brings deep work across human modeling, computer vision, egocentric vision, multimodal foundation models and human-robot interaction, joined by researchers and engineers from leading universities.",
+      institutionLabel: "Universities represented by our team",
+      institutions: ["Tsinghua", "Fudan", "Zhejiang", "Beihang", "University of Washington"],
+      closingTitle: "The field is open.\nThe paradigm is ours to define.",
+    },
+    research: {
+      kicker: "RESEARCH",
+      title: "Infrastructure for the next\ngeneration of collaboration",
+      intro: "Stronger models alone will not bring intelligent machines into everyday life. They must understand real people — and the changing relationship between people and their environments.",
+      thesisTitle: "Physical Interaction Model",
+      thesisBody: "We bring language, movement, state, environment and long-term feedback into one interaction loop. The model does more than answer: it develops an understanding of people through continuous observation and collaboration.",
+      pillars: [
+        { code: "DATA / 01", title: "Human-centered data", body: "Real-world interaction is far more complex than traditional training environments. We build egocentric, multimodal, real-life data that expresses bodies, intent and context.", tags: ["Egocentric", "Human behavior", "Multimodal"] },
+        { code: "MODEL / 02", title: "Interaction-native models", body: "We advance human understanding, long-term memory, multimodal reasoning and behavior prediction so models can combine state, context and history.", tags: ["Human modeling", "Long-term memory", "Reasoning"] },
+        { code: "DEVICE / 03", title: "Validation in the real world", body: "The Physical Interaction Model ultimately belongs in the world. We validate it across robots, smart glasses, homes and vehicles.", tags: ["Robotics", "Wearables", "Embodied AI"] },
+      ],
+      loop: ["See", "Understand", "Remember", "Act", "Learn"],
+      loopLabel: "The continuous interaction loop",
+    },
+    team: {
+      kicker: "PEOPLE",
+      title: "An AI team built\naround people",
+      intro: "Teaching machines to understand people means answering two questions at once: how can a machine see the body and behavior, and how can it understand intent, habits and long-term needs?",
+      founders: [
+        { initials: "FY", name: "Yao Feng", role: "Co-founder · Assistant Professor, Tsinghua University", bio: "Her research spans human modeling, computer vision and human-robot interaction, focusing on how machines understand bodies and movement and interact with people safely. She was a postdoctoral researcher at Stanford and contributed to the research and commercialization of Meshcapade.", focus: "Helping machines see people and understand bodies" },
+        { initials: "LM", name: "Miao Liu", role: "Co-founder · Assistant Professor, Tsinghua University", bio: "His research spans egocentric vision, multimodal foundation models and user behavior understanding, focusing on how machines see from a person's perspective and remember relationships between people and environments. He previously led technical work at Meta GenAI and Reality Labs.", focus: "Helping machines understand perspective, memory and intent" },
+      ],
+      collectiveTitle: "Data, models and deployment — built as one system.",
+      collectiveBody: "Our team works across human modeling, multimodal models, robot control and data systems, with members from Tsinghua, Fudan, Zhejiang, Beihang and the University of Washington.",
+      disciplines: ["Human modeling", "Multimodal models", "Robot control", "Data systems"],
+    },
+    join: {
+      kicker: "JOIN US",
+      title: "Help define the next\ngeneration of collaboration",
+      intro: "As AI enters the physical world, every machine decision can affect a real person. We welcome people working across AI, robotics, multimodal models, human-computer interaction and intelligent hardware.",
+      paths: [
+        { title: "Researchers & engineers", body: "Across human modeling, multimodal learning, long-term memory, behavior prediction, robot control and systems engineering." },
+        { title: "PhD students & interns", body: "For early-career researchers with a long-term interest in the Physical Interaction Model and the drive to tackle real problems." },
+        { title: "Industry & ecosystem partners", body: "To validate new interaction paradigms across robots, smart glasses, homes, vehicles and other real-world settings." },
+      ],
+      status: "Open roles and application details will be updated on this page.",
+      quote: "An important problem, a team that has been building toward it for years, and an open window for a new paradigm — meeting at exactly the right moment.",
+    },
+    footer: { line: "The right problem · The right people · The time is now" },
+  },
+} as const;
