@@ -22,7 +22,7 @@ export async function generateMetadata(): Promise<Metadata> {
       type: "website",
       title: "星曜同谐 · StarWith | Physical Interaction Model",
       description,
-      images: [{ url: `${origin}/og.png`, width: 1728, height: 911, alt: "StarWith Physical Interaction Model" }],
+      images: [{ url: `${origin}/og.png`, width: 1200, height: 630, alt: "StarWith Physical Interaction Model" }],
     },
     twitter: {
       card: "summary_large_image",
