@@ -1,16 +1,13 @@
 "use client";
 
-import Link from "next/link";
-import { usePathname } from "next/navigation";
-import { useEffect, useState } from "react";
+import { useState, useSyncExternalStore } from "react";
+import { getSitePathname } from "@/lib/site-routing";
 import { useLocale } from "./LocaleProvider";
 
 export function SiteHeader() {
   const { lang, copy, setLanguage, href } = useLocale();
-  const pathname = usePathname();
+  const pathname = useSyncExternalStore(() => () => {}, getSitePathname, () => "/");
   const [menuOpen, setMenuOpen] = useState(false);
-
-  useEffect(() => setMenuOpen(false), [pathname]);
 
   const navigation = [
     ["/research", copy.nav.research],
@@ -20,10 +17,10 @@ export function SiteHeader() {
 
   return (
     <header className="site-header">
-      <Link className="brand" href={href("/")} aria-label={copy.common.home}>
+      <a className="brand" href={href("/")} aria-label={copy.common.home}>
         <span className="brand-cn">星曜同谐</span>
         <span className="brand-en">STARWITH</span>
-      </Link>
+      </a>
       <button
         className="menu-button"
         aria-label={copy.nav.menu}
@@ -35,9 +32,9 @@ export function SiteHeader() {
       </button>
       <nav className={menuOpen ? "site-nav is-open" : "site-nav"} aria-label={copy.nav.primary}>
         {navigation.map(([path, label]) => (
-          <Link className={pathname === path ? "active" : ""} href={href(path)} key={path}>
+          <a className={pathname === path ? "active" : ""} href={href(path)} key={path}>
             {label}
-          </Link>
+          </a>
         ))}
         <div className="language-switch" aria-label={copy.nav.language}>
           <button className={lang === "zh" ? "selected" : ""} onClick={() => setLanguage("zh")}>中</button>
@@ -58,9 +55,9 @@ export function SiteFooter() {
         <strong>STARWITH</strong>
       </div>
       <div className="footer-links">
-        <Link href={href("/research")}>{copy.nav.research}</Link>
-        <Link href={href("/team")}>{copy.nav.team}</Link>
-        <Link href={href("/join")}>{copy.nav.join}</Link>
+        <a href={href("/research")}>{copy.nav.research}</a>
+        <a href={href("/team")}>{copy.nav.team}</a>
+        <a href={href("/join")}>{copy.nav.join}</a>
       </div>
       <p>{copy.footer.line}</p>
       <p>© 2026 StarWith</p>

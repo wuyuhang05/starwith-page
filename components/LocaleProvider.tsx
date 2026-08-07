@@ -1,7 +1,8 @@
 "use client";
 
-import { createContext, useContext, useEffect, useMemo, useState } from "react";
+import { createContext, useContext, useEffect, useMemo, useSyncExternalStore } from "react";
 import { content, type Language } from "@/lib/content";
+import { createSiteHref } from "@/lib/site-routing";
 
 type LocaleContextValue = {
   lang: Language;
@@ -11,28 +12,43 @@ type LocaleContextValue = {
 };
 
 const LocaleContext = createContext<LocaleContextValue | null>(null);
+const languageChangeEvent = "starwith-language-change";
+
+function getPreferredLanguage(): Language {
+  if (typeof window === "undefined") return "zh";
+
+  const urlLanguage = new URLSearchParams(window.location.search).get("lang");
+  const storedLanguage = window.localStorage.getItem("starwith-language");
+
+  if (urlLanguage === "en" || urlLanguage === "zh") return urlLanguage;
+  if (storedLanguage === "en" || storedLanguage === "zh") return storedLanguage;
+  return navigator.language.toLowerCase().startsWith("zh") ? "zh" : "en";
+}
+
+function subscribeToLanguage(callback: () => void) {
+  window.addEventListener(languageChangeEvent, callback);
+  window.addEventListener("storage", callback);
+
+  return () => {
+    window.removeEventListener(languageChangeEvent, callback);
+    window.removeEventListener("storage", callback);
+  };
+}
 
 export function LocaleProvider({ children }: { children: React.ReactNode }) {
-  const [lang, setLang] = useState<Language>("zh");
+  const lang = useSyncExternalStore(subscribeToLanguage, getPreferredLanguage, () => "zh");
 
   useEffect(() => {
-    const urlLanguage = new URLSearchParams(window.location.search).get("lang");
-    const storedLanguage = window.localStorage.getItem("starwith-language");
-    const preferred = urlLanguage === "en" || urlLanguage === "zh"
-      ? urlLanguage
-      : storedLanguage === "en" || storedLanguage === "zh"
-        ? storedLanguage
-        : navigator.language.toLowerCase().startsWith("zh") ? "zh" : "en";
-    setLang(preferred);
-  }, []);
+    document.documentElement.lang = lang === "zh" ? "zh-CN" : "en";
+  }, [lang]);
 
   const setLanguage = (nextLanguage: Language) => {
-    setLang(nextLanguage);
     window.localStorage.setItem("starwith-language", nextLanguage);
     const url = new URL(window.location.href);
     url.searchParams.set("lang", nextLanguage);
     window.history.replaceState({}, "", url);
     document.documentElement.lang = nextLanguage === "zh" ? "zh-CN" : "en";
+    window.dispatchEvent(new Event(languageChangeEvent));
   };
 
   const value = useMemo(
@@ -40,7 +56,7 @@ export function LocaleProvider({ children }: { children: React.ReactNode }) {
       lang,
       copy: content[lang],
       setLanguage,
-      href: (path: string) => `${path}?lang=${lang}`,
+      href: (path: string) => createSiteHref(path, lang),
     }),
     [lang],
   );

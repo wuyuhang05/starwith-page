@@ -1,6 +1,5 @@
 "use client";
 
-import Link from "next/link";
 import { useLocale } from "@/components/LocaleProvider";
 
 export default function Home() {
@@ -33,9 +32,9 @@ export default function Home() {
           </h1>
           <div className="hero-intro reveal delay-2">
             <p>{copy.home.heroIntro}</p>
-            <Link className="text-link" href={href("/research")}>
+            <a className="text-link" href={href("/research")}>
               {copy.common.exploreResearch} <span aria-hidden="true">↗</span>
-            </Link>
+            </a>
           </div>
         </div>
         <div className="tech-specs" aria-label="Physical Interaction Model system characteristics">
@@ -97,9 +96,9 @@ export default function Home() {
           <h2>{copy.home.teamTitle}</h2>
           <div>
             <p>{copy.home.teamBody}</p>
-            <Link className="text-link light-link" href={href("/team")}>
+            <a className="text-link light-link" href={href("/team")}>
               {copy.common.meetTeam} <span aria-hidden="true">↗</span>
-            </Link>
+            </a>
           </div>
         </div>
         <div className="institution-line" aria-label={copy.home.institutionLabel}>
@@ -112,9 +111,9 @@ export default function Home() {
       <section className="closing-call page-shell">
         <p className="eyebrow">{copy.common.join}</p>
         <h2>{copy.home.closingTitle}</h2>
-        <Link className="pill-link" href={href("/join")}>
+        <a className="pill-link" href={href("/join")}>
           {copy.common.buildWithUs} <span aria-hidden="true">→</span>
-        </Link>
+        </a>
       </section>
     </main>
   );
