@@ -38,12 +38,29 @@ export default function Home() {
             </Link>
           </div>
         </div>
+        <div className="tech-specs" aria-label="Physical Interaction Model system characteristics">
+          <div><span>INPUT</span><strong>Multimodal</strong></div>
+          <div><span>CONTEXT</span><strong>Long-term</strong></div>
+          <div><span>MODE</span><strong>Continuous</strong></div>
+          <div><span>OUTPUT</span><strong>Physical</strong></div>
+        </div>
         <div className="interaction-field" aria-hidden="true">
-          <div className="orbit orbit-a"><span /></div>
-          <div className="orbit orbit-b"><span /></div>
-          <div className="field-label field-human">HUMAN</div>
-          <div className="field-label field-model">MODEL</div>
-          <div className="field-core">PIM</div>
+          <div className="signal-line" />
+          <div className="signal-node node-input">
+            <span>01 / INPUT</span>
+            <strong>HUMAN STATE</strong>
+            <small>VISION · LANGUAGE · MOTION</small>
+          </div>
+          <div className="signal-node node-core">
+            <span>02 / MODEL</span>
+            <strong>PIM</strong>
+            <small>MEMORY · REASONING · PREDICTION</small>
+          </div>
+          <div className="signal-node node-output">
+            <span>03 / OUTPUT</span>
+            <strong>PHYSICAL ACTION</strong>
+            <small>SAFE · ADAPTIVE · REAL-TIME</small>
+          </div>
         </div>
       </section>
 
