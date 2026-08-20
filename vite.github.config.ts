@@ -7,7 +7,7 @@ const projectRoot = fileURLToPath(new URL(".", import.meta.url));
 
 export default defineConfig({
   root: resolve(projectRoot, "github-pages"),
-  base: "/starwith-page/",
+  base: "/",
   publicDir: resolve(projectRoot, "public"),
   plugins: [react()],
   resolve: {
